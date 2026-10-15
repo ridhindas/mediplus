@@ -1,0 +1,88 @@
+ {% load static %}
+{% include 'header.html' %}
+<!-- Start Contact Us -->
+<section class="contact-us section">
+    <div class="container">
+        <div class="inner">
+            <div class="row"> 
+               
+                <div class="col-lg-12">
+                    <div class="contact-us-form">
+                        <h2>BOOK APPOINTMENT</h2>
+                        <!-- Form -->
+                      <!-- Start Appointment -->
+		<section class="appointment">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 col-md-12 col-12">
+						<form class="form" method="POST" action="bookapp">
+							{% csrf_token %}
+							<div class="row">
+								<div class="col-lg-6 col-md-6 col-12">
+									<div class="form-group">
+										<input name="patientname" type="text" placeholder="Name">
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-12">
+									<div class="form-group">
+										<input name="patientemail" type="email" placeholder="Email">
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-12">
+									<div class="form-group">
+										<input name="patientphone" type="text" placeholder="Phone">
+									</div>
+								</div>
+                                <div class="col-lg-6 col-md-6 col-12">
+									<div class="form-group">
+										<input name="patientage" type="number" placeholder="Age">
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-12">
+									<div class="form-group">
+												<select name="docname" id="cars">
+													{% for i in result %}
+													<option value="{{i.docname}}({{i.docspeciallization}})">{{i.docname}}({{i.docspeciallization}})</option>
+													{% endfor %}
+												  </select>	  
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-12">
+									<div class="col-lg-6 col-md-6 col-12">
+										<div class="form-group">
+											<input name="bookingdate" type="date" placeholder="date">
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-12 col-md-12 col-12">
+									<div class="form-group">
+										<textarea name="patientproblem" placeholder="Write Your health issue Here....."></textarea>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-5 col-md-4 col-12">
+									<div class="form-group">
+										<div class="button">
+											<button type="submit" class="btn">Book An Appointment</button>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-7 col-md-8 col-12">
+									<p>( We will be confirm by an Text Message )</p>
+								</div>
+							</div>
+						<  /form>
+					</div>
+					<div class="col-lg-6 col-md-12 ">
+						<div class="appointment-image">
+							<img src="{% static 'img/contact-img.png' %}" alt="#">
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Appointment -->
+		
+                    
+{% include 'footer.html' %}

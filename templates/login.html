@@ -1,0 +1,80 @@
+ {% load static %}
+{% include 'header.html' %}
+<!-- Start Contact Us -->
+<section class="contact-us section">
+    <div class="container">
+        <div class="inner">
+            <div class="row"> 
+               
+                <div class="col-lg-12">
+                    <div class="contact-us-form">
+                        <h2>Login in</h2>
+                        <!-- Form -->
+                        <form class="form" method="POST" action="" >
+                           {% csrf_token %}
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <input type="email" name="useremail" placeholder="Email" required="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <input type="password" name="userpassword" placeholder="Password" required="">
+                                    </div>
+                                </div>
+                                
+                                <div class="col-12">
+                                    <div class="form-group login-btn">
+                                        <button class="btn" type="submit">Login</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <!--/ End Form -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="contact-info">
+            <div class="row">
+                <!-- single-info -->
+                <div class="col-lg-4 col-12 ">
+                    <div class="single-info">
+                        <i class="icofont icofont-ui-call"></i>
+                        <div class="content">
+                            <h3>+(000) 1234 56789</h3>
+                            <p>info@company.com</p>
+                        </div>
+                    </div>
+                </div>
+                <!--/End single-info -->
+                <!-- single-info -->
+                <div class="col-lg-4 col-12 ">
+                    <div class="single-info">
+                        <i class="icofont-google-map"></i>
+                        <div class="content">
+                            <h3>2 Fir e Brigade Road</h3>
+                            <p>Chittagonj, Lakshmipur</p>
+                        </div>
+                    </div>
+                </div>
+                <!--/End single-info -->
+                <!-- single-info -->
+                <div class="col-lg-4 col-12 ">
+                    <div class="single-info">
+                        <i class="icofont icofont-wall-clock"></i>
+                        <div class="content">
+                            <h3>Mon - Sat: 8am - 5pm</h3>
+                            <p>Sunday Closed</p>
+                        </div>
+                    </div>
+                </div>
+                <!--/End single-info -->
+            </div>
+        </div>
+    </div>
+</section>
+<!--/ End Contact Us -->
+
+{% include 'footer.html' %}

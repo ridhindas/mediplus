@@ -1,0 +1,62 @@
+{% load static %}
+{% include 'header.html' %}
+<!-- Start Contact Us -->
+<section class="contact-us section">
+    <div class="container">
+        <div class="inner">
+            <div class="row"> 
+               
+                <div class="col-lg-12">
+                    <div class="contact-us-form">
+                        <h2>Update</h2>
+                        <!-- Form -->
+                        <form class="form" method="POST" action="doctorupdates/{{result.id}}" enctype="multipart/form-data">
+                           {% csrf_token %}
+                            <div class="row">
+                                <div class="col-lg-6">
+                                <div class="form-group">
+                                    <img src="../media/{{ result.docphoto }}" alt="no image" style="width:300px;height:300px;">
+                                        <input type="file" name="docphoto" placeholder="Photo" required="" value="{{result.docphoto}}"> 
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <input type="text" name="docname" placeholder="Name" required="" value="{{result.docname}}">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <input type="text" name="docspeciallization" placeholder="speciallization" required="" value="{{result.docspeciallization}}">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <input type="number" name="docpayment" placeholder="Fees" min="0" required="" value="{{result.docpayment}}">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <input type="time" name="doctiming" placeholder="timing" required="" value="{{result.doctiming}}">
+                                    </div>
+                                </div>
+                                
+                                <div class="col-12">
+                                    <div class="form-group login-btn">
+                                        <button class="btn" type="submit">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <!--/ End Form -->
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+            </div>
+        </div>
+    </div>
+</section>
+<!--/ End Contact Us -->
+
+{% include 'footer.html' %}

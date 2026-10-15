@@ -1,0 +1,63 @@
+	{% load static %}
+    {% include 'header.html' %}
+    <!-- Start Contact Us -->
+    <section class="contact-us section">
+        <div class="container">
+            <div class="inner">
+                <div class="row"> 
+                   
+                    <div class="col-lg-12">
+                        <div class="contact-us-form">
+                            <h2>Sign up?</h2>
+                            <!-- Form -->
+                            <form class="form" method="POST" action="user_register" enctype="multipart/form-data">
+                               {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group"> 
+                                            <input type="file" name="userphoto" placeholder="Photo" required="">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <input type="text" name="username" placeholder="Name" required="">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <input type="email" name="useremail" placeholder="Email" required="">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <input type="text" name="userphone" placeholder="Phone" required="">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <input type="password" name="userpassword" placeholder="Password" required="">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-12">
+                                        <div class="form-group login-btn">
+                                            <button class="btn" type="submit">Register</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <!--/ End Form -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-info">
+                <div class="row">
+                    <!-- single-info -->
+                   
+            </div>
+        </div>
+    </section>
+    <!--/ End Contact Us -->
+
+    {% include 'footer.html' %}
