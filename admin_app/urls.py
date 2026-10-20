@@ -22,7 +22,7 @@ urlpatterns = [
     path('userview',views.userview),
 
 
-    path('userdelete/<int:id>',views.userdelete,name="userdelete"),
+   #path('userdelete/<int:id>',views.userdelete,name="userdelete"),
     
 
 
