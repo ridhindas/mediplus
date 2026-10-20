@@ -100,7 +100,7 @@ pipeline {
         
         stage('Push to Docker Hub') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'docker-hub-creds', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                withCredentials([usernamePassword(credentialsId: 'docker-cred', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
                     sh '''
                         echo "${DOCKER_PASS}" | docker login -u "${DOCKER_USER}" --password-stdin
                         docker push ${DOCKER_IMAGE}:${DOCKER_TAG}
@@ -112,7 +112,7 @@ pipeline {
         
         stage('Update Kubernetes Manifests in Git') {
             steps {
-                withCredentials([string(credentialsId: 'github-pat', variable: 'GITHUB_TOKEN')]) {
+                withCredentials([string(credentialsId: 'github-cred', variable: 'GITHUB_TOKEN')]) {
                     sh '''
                         echo "=== Updating k8s/deployment.yaml with new image tag ==="
                         sed -i "s|image: .*|image: ${DOCKER_IMAGE}:${DOCKER_TAG}|g" k8s/deployment.yaml
@@ -121,7 +121,7 @@ pipeline {
                         git config user.name "${GIT_NAME}"
                         
                         # Use token for authentication
-                        git remote set-url origin https://${GITHUB_TOKEN}@github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME.git
+                        git remote set-url origin https://${GITHUB_TOKEN}@github.com/ridhindas/mediplus.git
                         
                         git add k8s/deployment.yaml
                         git commit -m "chore: update mediplus image to ${DOCKER_TAG} [skip ci]" || echo "No changes to commit"
