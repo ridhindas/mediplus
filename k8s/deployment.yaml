@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: mediplus
-        image: YOUR_DOCKERHUB_USERNAME/mediplus:latest # Jenkins will update this tag
+        image: ridhindas/mediplus:latest # Jenkins will update this tag
         ports:
         - containerPort: 8000
         resources:
