@@ -17,6 +17,7 @@ spec:
       containers:
       - name: mediplus
         image: ridhindas/mediplus:latest # Jenkins will update this tag
+        imagePullPolicy: Always
         ports:
         - containerPort: 8000
         resources:
